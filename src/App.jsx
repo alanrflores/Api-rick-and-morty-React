@@ -11,7 +11,21 @@ const App = () => {
 
   const [nombrePersonaje, setNombrePersonaje] = useState("")
 
+//en el formulario tenemos el input(nombre) y se guarda en el setNombrePersonaje
+//como en el app tenemos el nombrePersonaje y se esta enviando a PintarDatos, utilizamos un useEffect
+  useEffect(()=>{
+//si existe guardado en el localStorage alguna clave o nombre
+//nosotros decimos que setNombrePersonaje va ser lo que viene de JSON.parse(), si existe , se carga
+      if(localStorage.getItem('nombreApi')){
+          setNombrePersonaje(JSON.parse(localStorage.getItem('nombreApi')))
+      }
 
+  }, [])
+
+//Cada vez que se actualiza el nombrePersonaje nosotros lo guardamos en el local
+ useEffect(()=>{
+    localStorage.setItem('nombreApi', JSON.stringify(nombrePersonaje));
+ }, [nombrePersonaje])
 
 
 //const [contador, setContador] = useState(0);

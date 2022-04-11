@@ -14,7 +14,9 @@ const [loading, setLoading] = useState(false);
 //y que se renderize una sola vez por eso ponemos []
 //pero queremos que este pendiente por eso le ponemos nombrePersonaje adentro de []
  useEffect(()=>{
+//Cuando se cambia el nombre del personaje lo guardamos al local
      consumirApi(nombrePersonaje)
+     
  }, [nombrePersonaje]);
 
 //ya lo tenemos ahora hacemos una funcion fetch
